@@ -19,7 +19,7 @@ This project integrates weather and flight delay data to create an analytics das
 
 ### **2. Data Storage**
 - **SQLite Database**:
-  - Acts as the central repository for storing and processed data.
+  - Acts as the central repository for storing data.
   - Chosen for its simplicity, lightweight nature, and compatibility with Python.
   - Supports rapid prototyping and is suitable for small to medium datasets.
 
@@ -36,7 +36,7 @@ This project integrates weather and flight delay data to create an analytics das
 ---
 
 ### **4. Data Governance**
-To ensure the integrity and usability of the data, the following governance principles are considered:
+To ensure the integrity and usability of the data, the following governance principles need to be considered:
 - **Data Quality**: Regular validation checks during ingestion and cleaning to identify and rectify inconsistencies.
 - **Version Control**: Historical data snapshots are maintained to facilitate model retraining and audits.
 - **Compliance**: Adherence to standards for using government-provided data (e.g., respecting terms of service and proper citation).
@@ -107,7 +107,7 @@ This project is developed using **Python** and **Streamlit**, along with the fol
 
 **Justification**:
 - Python libraries were chosen for their extensive community support and flexibility in handling diverse tasks (e.g., data manipulation, visualization, and machine learning).
-- Streamlit is particularly well-suited for creating interactive dashboards quickly, requiring minimal frontend expertise.
+- Streamlit is particularly well-suited for creating interactive dashboards quickly and allows easier transition from Juypter notebooks.
 
 ---
 
