@@ -22,12 +22,12 @@ def predictions_page():
     
     # Display model metrics
     metrics = prediction_model['metrics']
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     
     col1.metric("R-squared", f"{metrics['r_squared']:.3f}")
     col2.metric("RMSE", f"{metrics['rmse']:.1f} min")
     col3.metric("MAE", f"{metrics['mae']:.1f} min")
-    col4.metric("CV RMSE", f"{metrics['cv_rmse']:.1f} min")
+    #col4.metric("CV RMSE", f"{metrics['cv_rmse']:.1f} min")
     
     # Feature importance plot
     st.subheader("Feature Importance")
@@ -85,15 +85,15 @@ def predictions_page():
         f"{prediction['prediction']:.1f} minutes"
     )
     
-    col2.metric(
-        "Lower Bound",
-        f"{prediction['lower_bound']:.1f} minutes"
-    )
+    # col2.metric(
+    #     "Lower Bound",
+    #     f"{prediction['lower_bound']:.1f} minutes"
+    # )
     
-    col3.metric(
-        "Upper Bound",
-        f"{prediction['upper_bound']:.1f} minutes"
-    )
+    # col3.metric(
+    #     "Upper Bound",
+    #     f"{prediction['upper_bound']:.1f} minutes"
+    # )
     
     # Model insights
     st.subheader("Model Insights")

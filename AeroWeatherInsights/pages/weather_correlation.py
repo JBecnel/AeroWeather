@@ -72,10 +72,9 @@ def weather_correlation_page():
         st.plotly_chart(fig, use_container_width=True)
     
         
-    # Weather impact heatmap
-    # st.subheader("Historical Weather Conditions Impact")
-    # fig = create_weather_heatmap(df)
-    # st.plotly_chart(fig, use_container_width=True)
+    st.subheader("Historical Weather Conditions Impact")
+    fig = create_weather_heatmap(df)
+    st.plotly_chart(fig, use_container_width=True)
     
     # Detailed statistics
     st.subheader("Detailed Weather Impact Statistics")
