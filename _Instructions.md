@@ -1,6 +1,6 @@
 # Project Setup Guide
 
-This guide provides instructions to set up your Python environment and install all necessary dependencies for your project.
+This guide provides instructions to set up your Python environment and install all necessary dependencies for the project.
 
 
 ## Prerequisites
