@@ -217,11 +217,11 @@ class DataCollector:
                                 if not flight_data['precipitation']:
                                     flight_data['precipitation'] = 0.0
                                 if flight_data['precipitation'] >= .3:
-                                    flight_data['weather_condition'] = "Rain"
+                                    #flight_data['weather_condition'] = "Rain"
                                     alpha = np.random.normal(10,3)
                                     if flight_data['temperature'] <= 32 :
                                         alpha = np.random.normal(25,5)
-                                        flight_data['weather_condition'] = "Snow"
+                                        #flight_data['weather_condition'] = "Snow"
                                 
                                 airline_factor = np.random.normal(delay_params[airline][0], delay_params[airline][1])
                             except Exception as e:

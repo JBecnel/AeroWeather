@@ -1,4 +1,4 @@
-FORCE_GET_DATA = True
+FORCE_GET_DATA = False
 
 import logging
 import sys
