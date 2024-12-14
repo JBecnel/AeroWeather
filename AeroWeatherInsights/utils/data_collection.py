@@ -26,8 +26,8 @@ class DataCollector:
         try:
             logger.info("Starting historical data initialization...")
             
-            end_date = date(2024,12,11)  # "finish" date of project
-            start_date = end_date - timedelta(days=2)  # 1 year of data
+            end_date = date(2024,12,13)  # "finish" date of project
+            start_date = end_date - timedelta(days=369)  # 1 year of data
             
             
             # Always reinitialize database when force is True
