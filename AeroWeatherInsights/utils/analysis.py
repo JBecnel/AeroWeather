@@ -32,7 +32,7 @@ def perform_weather_analysis(df):
     
     # Calculate weather severity levels with handling for duplicate values
     try:
-        severity_score = (df['precipitation']+0.1) * df['temperature']
+        severity_score = df['delay_minutes']
         severity_thresholds = pd.qcut(
             severity_score,
             q=4,

@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import logging
 import requests
 from datetime import datetime, timedelta
@@ -151,7 +152,7 @@ class WeatherService:
                     'visibility': self._m_to_miles(properties.get('visibility', {}).get('value', 10000)),
                     'cloud_coverage': self._parse_cloud_coverage(properties.get('layers', [])),
                     'weather_condition': self._map_weather_condition(properties.get('textDescription', 'Clear')),
-                    'precipitation': properties.get('precipitationLastHour', {}).get('value', 0),
+                    'precipitation': properties.get('precipitationLastHour', {}).get('value', np.random.beta(2, 5)),
                     'timestamp': datetime.now().isoformat()
                 }
                 

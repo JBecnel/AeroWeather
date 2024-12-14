@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import random
 import numpy as np
 import sqlite3
 from datetime import datetime, timedelta, date
@@ -178,11 +179,11 @@ class DataCollector:
             'JetBlue' : (30, 7)
         }
         airport_params = {
-            'SEA' : (30, 10),
-            'LAX' : (15, 3.75),
-            'LGA' : (10, 4),
-            'DFW' : (15, 8),
-            'MIA' : (12, 6)
+            'SEA' : (30, 10, .7),
+            'LAX' : (15, 3.75, .1),
+            'LGA' : (10, 4, .5),
+            'DFW' : (15, 8, .3),
+            'MIA' : (12, 6, .5)
         }
         
         for airline in airlines:
@@ -216,12 +217,16 @@ class DataCollector:
                                 alpha = 0
                                 if not flight_data['precipitation']:
                                     flight_data['precipitation'] = 0.0
+                                if flight_data['precipitation'] <= 0.01:
+                                    flip = random.random()
+                                    if flip <= airport_params[origin][2]:
+                                        flight_data['precipitation'] = np.random.beta(3,5)
                                 if flight_data['precipitation'] >= .3:
-                                    #flight_data['weather_condition'] = "Rain"
+                                    flight_data['weather_condition'] = "Rain"
                                     alpha = np.random.normal(10,3)
                                     if flight_data['temperature'] <= 32 :
                                         alpha = np.random.normal(25,5)
-                                        #flight_data['weather_condition'] = "Snow"
+                                        flight_data['weather_condition'] = "Snow"
                                 
                                 airline_factor = np.random.normal(delay_params[airline][0], delay_params[airline][1])
                             except Exception as e:
@@ -229,7 +234,7 @@ class DataCollector:
                             
                             
                             airport_factor = np.random.normal(airport_params[origin][0], airport_params[origin][1])
-                            temp_factor = (100-flight_data['temperature'])*0.01
+                            temp_factor = (90-flight_data['temperature'])*0.01
                             base_delay = 0.5*airline_factor  + 0.5*airport_factor + flight_data['precipitation']*20 + temp_factor + alpha
                         
                             
